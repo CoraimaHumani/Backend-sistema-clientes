@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer('dias_calendario');
             $table->string('estado', 100);
             $table->text('comentarios');
-            $table->foreignId('id_cliente')->constrained()->onDelete('cascade'); // Relación con la tabla clientes
-            $table->foreignId('id_servicio')->constrained()->onDelete('cascade'); // Relación con la tabla servicios
+            $table->foreignId('id_cliente')->constrained('clientes', 'id_cliente')->onDelete('cascade'); // Relación con la tabla clientes
+            $table->foreignId('id_servicio')->constrained('servicios', 'id_servicio')->onDelete('cascade'); // Relación con la tabla servicios
             $table->timestamps();
         });
     }
