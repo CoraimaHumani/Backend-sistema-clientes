@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Sanctum\HasApiTokens;
 
 
 class Usuario extends Model
 {
-    use HasFactory;
+    use HasFactory,HasApiTokens;
 
     // Reemplaza 'usuario_id' con el nombre correcto de la columna
     protected $primaryKey = 'id_usuario';
@@ -36,7 +37,7 @@ class Usuario extends Model
     // Definir los tipos de atributos
     protected $casts = [
         'estado' => 'boolean',
-        'fecha_creacion' => 'datetime', 
+        'fecha_creacion' => 'datetime',
     ];
 
     // Mutador para cifrar la contraseña antes de guardarla

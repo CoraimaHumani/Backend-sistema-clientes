@@ -16,11 +16,15 @@ return new class extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->integer('dias_calendario');
-            $table->string('estado', 100);
+            $table->string('estado');
             $table->text('comentarios');
-            $table->foreignId('id_cliente')->constrained()->onDelete('cascade'); // Relación con la tabla clientes
-            $table->foreignId('id_servicio')->constrained()->onDelete('cascade'); // Relación con la tabla servicios
-            $table->timestamps();
+            $table->unsignedBigInteger('id_cliente');
+            $table->unsignedBigInteger('id_servicio');
+
+            // Definir claves primarias y foráneas
+            $table->primary('id_asignacion');
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
+            $table->foreign('id_servicio')->references('id_servicio')->on('servicios')->onDelete('cascade');
         });
     }
 

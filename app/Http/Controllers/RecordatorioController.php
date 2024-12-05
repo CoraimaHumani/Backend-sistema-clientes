@@ -24,14 +24,16 @@ class RecordatorioController extends Controller
     // Crear un nuevo recordatorio
     public function store(Request $request)
     {
+        // Validación de los datos recibidos
         $validated = $request->validate([
             'mensaje' => 'required|string',
             'fecha_envio' => 'nullable|date',  // Si quieres que sea opcional
             'id_cliente' => 'required|exists:clientes,id_cliente',
             'id_servicio' => 'required|exists:servicios,id_servicio',
-            'id_usuario' => 'required|exists:usuario,id_usuario',
+            'id_usuario' => 'required|exists:usuario,id_usuario', // Revisa que 'usuarios' y 'id_usuario' estén bien definidos
         ]);
     
+        // Crear el recordatorio
         $recordatorio = Recordatorio::create($validated);
         return response()->json($recordatorio, 201);
     }

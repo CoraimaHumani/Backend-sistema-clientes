@@ -64,7 +64,7 @@ class UsuarioController extends Controller
     $usuario->delete();
 
     // Retorna un mensaje de éxito con un código 200
-    return response()->json(['message' => 'Usuario eliminado con éxito.'], 200);
+    return response()->json(['message' => 'Usuario eliminado con éxito'], 200);
     }
 
 }

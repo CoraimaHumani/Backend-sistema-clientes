@@ -22,7 +22,6 @@ class ClienteController extends Controller
 
     public function show($id)
     {
-        // Muestra un cliente mediante id
         return Cliente::findOrFail($id);
     }
 
@@ -31,7 +30,7 @@ class ClienteController extends Controller
         // Validación de los datos recibidos
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:clientes,email,' . $id,  // $id es correcto si corresponde a id_cliente
+            'email' => 'required|email|max:255',  // $id es correcto si corresponde a id_cliente
         ]);
         // Busca por id
         $cliente = Cliente::findOrFail($id);
