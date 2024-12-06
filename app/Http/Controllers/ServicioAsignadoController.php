@@ -41,7 +41,6 @@ class ServicioAsignadoController extends Controller
     //ctualizar un servicio
     public function update(Request $request, $id)
     {
-    // Validación de las entradas del formulario
     $validated = $request->validate([
         'fecha_inicio' => 'required|date',
         'fecha_fin' => 'required|date',
@@ -52,13 +51,10 @@ class ServicioAsignadoController extends Controller
         'id_servicio' => 'required|exists:servicios,id_servicio',
     ]);
 
-    // Buscar el registro por id
     $servicioAsignado = ServicioAsignado::findOrFail($id);
 
-    // Actualizar los valores de la validacion
     $servicioAsignado->update($validated);
 
-    // Retornar mediante json
     return response()->json($servicioAsignado);
 }
 
@@ -66,7 +62,7 @@ class ServicioAsignadoController extends Controller
     //eliminar un servicio
     public function destroy($id)
     {
-        // Buscar el servicio asignado por su id
+        // Buscar el servicio por id
         $servicioAsignado = ServicioAsignado::findOrFail($id);
 
         // Eliminar

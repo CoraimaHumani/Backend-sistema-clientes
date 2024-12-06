@@ -30,7 +30,7 @@ class ClienteController extends Controller
         // Validación de los datos recibidos
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|max:255',  // $id es correcto si corresponde a id_cliente
+            'email' => 'required|email|max:255',
         ]);
         // Busca por id
         $cliente = Cliente::findOrFail($id);
@@ -38,7 +38,7 @@ class ClienteController extends Controller
         // Actualiza en cliente
         $cliente->update($request->all());
 
-        // Retorna la respuesta con el cliente actualizado
+        // Retorna la respuesta
         return response()->json($cliente);
     }
 
@@ -47,6 +47,6 @@ class ClienteController extends Controller
     {
         // Elimina un cliente
         Cliente::destroy($id);
-        return response()->json(null, 204); // 204 significa sin contenido (borrado exitoso)
+        return response()->json(null, 204);
     }
 }
