@@ -33,6 +33,7 @@ class ClienteController extends Controller
 
         $cliente->update($request->all());
 
+        // Retorna la respuesta con el cliente actualizado
         return response()->json($cliente);
     }
 
@@ -41,6 +42,6 @@ class ClienteController extends Controller
     {
         // Elimina un cliente
         Cliente::destroy($id);
-        return response()->json(null, 204); // 204 significa sin contenido (borrado exitoso)
+        return response()->json(null, 204);
     }
 }

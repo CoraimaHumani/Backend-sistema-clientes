@@ -17,7 +17,7 @@ return new class extends Migration
         $table->string('telefono', 15);
         $table->text('comentarios');
         $table->unsignedBigInteger('asignado_a');
-        $table->timestamps();  // Esto generará automáticamente 'created_at' y 'updated_at'
+        $table->timestamps();
     });
 }
 

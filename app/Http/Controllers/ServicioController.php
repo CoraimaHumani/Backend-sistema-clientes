@@ -42,14 +42,13 @@ class ServicioController extends Controller
             'descripcion' => 'sometimes|required|string',
             'precio' => 'sometimes|required|numeric',
         ]);
-    
+
         // Actualizar
         $servicio->update($request->all());
-    
-        // Retornar mediante json
+
         return response()->json($servicio);
     }
-    
+
     public function destroy(Servicio $servicio)
     {
     // Eliminar el servicio

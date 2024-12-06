@@ -9,16 +9,12 @@ class ServicioAsignado extends Model
 {
     use HasFactory;
 
-    // Especificamos la tabla en la base de datos
     protected $table = 'servicios_asignados';
     
-    // Especificamos la clave primaria
     protected $primaryKey = 'id_asignacion';
 
-    // Indicamos que no estamos utilizando timestamps
     public $timestamps = false;
 
-    // Definimos los campos que son asignables masivamente
     protected $fillable = [
         'fecha_inicio',
         'fecha_fin',

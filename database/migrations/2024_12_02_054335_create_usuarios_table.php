@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('constrasena', 200);
             $table->string('rol', 100);
             $table->boolean('estado')->default(1);
-            $table->timestamp('fecha_creacion')->default(DB::raw('CURRENT_TIMESTAMP'));         });
+            $table->timestamp('fecha_creacion')->default(DB::raw('CURRENT_TIMESTAMP'));
+        });
     }
 
     public function down(): void

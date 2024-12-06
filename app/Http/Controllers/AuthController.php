@@ -16,7 +16,6 @@ class AuthController extends Controller
     // Método de login
     public function login(Request $request)
     {
-        // Validar los datos de entrada
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'constrasena' => 'required|string',
