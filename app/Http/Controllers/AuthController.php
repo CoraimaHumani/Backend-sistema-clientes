@@ -45,7 +45,6 @@ class AuthController extends Controller
     // Método de logout
     public function logout(Request $request)
     {
-    // Eliminar todos los tokens asociados al usuario autenticado
     $request->user()->tokens->each(function ($token) {
         $token->delete();
     });

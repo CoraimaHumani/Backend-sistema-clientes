@@ -9,13 +9,11 @@ class ClienteController extends Controller
 {
     public function index()
     {
-        // Lista los clientes
         return Cliente::all();
     }
 
     public function store(Request $request)
     {
-        // Crea un nuevo cliente
         $cliente = Cliente::create($request->all());
         return response()->json($cliente, 201);
     }
@@ -27,18 +25,14 @@ class ClienteController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validación de los datos recibidos
         $request->validate([
             'nombre' => 'required|string|max:255',
-            'email' => 'required|email|max:255',  // $id es correcto si corresponde a id_cliente
+            'email' => 'required|email|max:255',
         ]);
-        // Busca por id
         $cliente = Cliente::findOrFail($id);
 
-        // Actualiza en cliente
         $cliente->update($request->all());
 
-        // Retorna la respuesta con el cliente actualizado
         return response()->json($cliente);
     }
 
